@@ -6,7 +6,7 @@
     <Copyright>LSCode</Copyright>
     <Description>Oferece códigos para facilitar conexões com bancos de dados nos projetos da LSCode</Description>
     <AssemblyVersion>2021.11.18.1</AssemblyVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.ConexoesBD</PackageProjectUrl>
