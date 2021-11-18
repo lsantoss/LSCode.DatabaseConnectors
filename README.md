@@ -12,7 +12,7 @@
 
 <p>public static string SQLServerConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Votacao;Data Source=SANTOS-PC\SQLEXPRESS;";</p>
 
-<p>public static string SQLServerConnectionString = @"Data Source=dataSource;Initial Catalog=inicialCatalog;User Id=usuario;Password=senha;";</p>
+<p>public static string SQLServerConnectionString = @"Data Source=dataSource;Initial Catalog=Votacao;User Id=usuario;Password=senha;";</p>
 
 <p>public static string MySQLConnectionString = @"SERVER=localhost; DATABASE=votacao; UID=root; PASSWORD=root;";</p>
 
@@ -22,4 +22,8 @@
 
 <p>public static string OracleConnectionString = @"User Id=SYSTEM;Password=root;Data Source=localhost:1521/xe;";</p>
 
+<p>public static string FirebirdConnectionString = @"Server=localhost; Database=C:\Votacao.FDB; User=SYSDBA; Password=masterkey;";</p>
+
 <p>public static string MongoDBConnectionString = @"mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false";</p>
+
+<p>public static string RedisConnectionString = @"localhost";</p>

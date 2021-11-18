@@ -16,6 +16,9 @@
         PostgreSQL = 4,
 
         /// <value>Utilizada na conexão com bases de dados Oracle.</value>
-        Oracle = 5
+        Oracle = 5,
+
+        /// <value>Utilizada na conexão com bases de dados Firebird.</value>
+        Firebird = 6
     }
 }

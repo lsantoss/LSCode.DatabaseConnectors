@@ -5,19 +5,19 @@
     <Authors>LSCode</Authors>
     <Copyright>LSCode</Copyright>
     <Description>Oferece códigos para facilitar conexões com bancos de dados nos projetos da LSCode</Description>
-    <AssemblyVersion>2020.11.20.1</AssemblyVersion>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AssemblyVersion>2021.11.18.1</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.ConexoesBD</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lsantoss/LSCode.ConexoesBD</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>LSCode</PackageTags>
-    <PackageReleaseNotes>Inclusão de documentação XML no projeto.</PackageReleaseNotes>
+    <PackageReleaseNotes>Inclusão de conexões com Firebird e Redis</PackageReleaseNotes>
     <PackageIcon>LSCodePackageIcon.png</PackageIcon>
-    <Version>1.7</Version>
+    <Version>2.0</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <FileVersion>1.7.0.0</FileVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,10 +25,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="8.5.4" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
     <PackageReference Include="MySql.Data" Version="8.0.21" />
     <PackageReference Include="Npgsql" Version="4.1.4" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.90" />
+    <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
   </ItemGroup>

@@ -1,8 +1,10 @@
-﻿using LSCode.ConexoesBD.Enums;
+﻿using FirebirdSql.Data.FirebirdClient;
+using LSCode.ConexoesBD.Enums;
 using MongoDB.Driver;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using Oracle.ManagedDataAccess.Client;
+using StackExchange.Redis;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,27 +20,35 @@ namespace LSCode.ConexoesBD.DataContexts
     ///     <para>SQLite</para>
     ///     <para>PostgreSQL</para>
     ///     <para>Oracle</para>
+    ///     <para>Firebird</para>
     ///     <para>MongoDB</para>
+    ///     <para>Redis</para>
     /// </remarks>
     public class DataContext : IDisposable
     {
         /// <value>Utilizada na conexão com bases de dados SQLServer.</value>
-        public SqlConnection SQLServerConexao { get; set; }
+        public SqlConnection SQLServerConexao { get; private set; }
 
         /// <value>Utilizada na conexão com bases de dados MySQL.</value>
-        public MySqlConnection MySQLConexao { get; set; }
+        public MySqlConnection MySQLConexao { get; private set; }
 
         /// <value>Utilizada na conexão com bases de dados SQLite.</value>
-        public SQLiteConnection SQLiteConexao { get; set; }
+        public SQLiteConnection SQLiteConexao { get; private set; }
 
         /// <value>Utilizada na conexão com bases de dados PostgreSQL.</value>
-        public NpgsqlConnection PostgreConexao { get; set; }
+        public NpgsqlConnection PostgreConexao { get; private set; }
 
         /// <value>Utilizada na conexão com bases de dados Oracle.</value>
-        public OracleConnection OracleConexao { get; set; }
+        public OracleConnection OracleConexao { get; private set; }
+
+        /// <value>Utilizada na conexão com bases de dados Firebird.</value>
+        public FbConnection FirebirdConexao { get; private set; }
 
         /// <value>Utilizada na conexão com bases de dados MongoDB.</value>
-        public IMongoDatabase MongoDBConexao { get; set; }
+        public IMongoDatabase MongoDBConexao { get; private set; }
+
+        /// <value>Utilizada na conexão com bases de dados Redis.</value>
+        public ConnectionMultiplexer RedisConexao { get; private set; }
 
         /// <summary>Construtor da classe DbContext.</summary>
         /// <param name="bancoDadosRelacional">Banco de dados relacional utilizado para a conexão.</param>
@@ -74,6 +84,11 @@ namespace LSCode.ConexoesBD.DataContexts
                     OracleConexao = new OracleConnection(stringConexao);
                     OracleConexao.Open();
                 }
+                else if (bancoDadosRelacional == EBancoDadosRelacional.Firebird)
+                {
+                    FirebirdConexao = new FbConnection(stringConexao);
+                    FirebirdConexao.Open();
+                }
             }
             catch(Exception ex)
             {
@@ -95,6 +110,13 @@ namespace LSCode.ConexoesBD.DataContexts
                 {
                     var client = new MongoClient(stringConexao);
                     MongoDBConexao = client.GetDatabase(nomeBaseDeDados);
+                }
+                else if (bancoDadosNaoRelacional == EBancoDadosNaoRelacional.Redis)
+                {
+                    RedisConexao = new Lazy<ConnectionMultiplexer>(() =>
+                    {
+                        return ConnectionMultiplexer.Connect(stringConexao);
+                    }).Value;
                 }
             }
             catch (Exception ex)
@@ -124,8 +146,14 @@ namespace LSCode.ConexoesBD.DataContexts
                 if (OracleConexao.State != ConnectionState.Closed)
                     OracleConexao.Close();
 
-                if(MongoDBConexao != null)
+                if (FirebirdConexao.State != ConnectionState.Closed)
+                    FirebirdConexao.Close();
+
+                if (MongoDBConexao != null)
                     MongoDBConexao = null;
+
+                if (RedisConexao.IsConnected)
+                    RedisConexao.Close();
             }
             catch (Exception ex)
             {
