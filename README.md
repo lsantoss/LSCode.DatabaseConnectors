@@ -6,9 +6,25 @@
 <p>Pacote NuGet: LSCode.Facilitador.Api</p>
 <p>Tipo do Projeto: .Net Standard 2.0</p>
 
-<br>
+<hr>
 
-<p><b>Exemplos de string de conexão</b></p>
+<h2>Conexões disponíveis</h2>
+<dl>
+  <dt>Bancos Realacionais</dt>
+  <dd>SQL Server</dd>
+  <dd>MySQL</dd>
+  <dd>SQLite</dd>
+  <dd>PostgreSQL</dd>
+  <dd>Oracle</dd>
+  <dd>Firebird</dd>
+  <dt>Bancos Não Realacionais</dt>
+  <dd>MongoDB</dd>
+  <dd>Redis</dd>
+</dl>
+
+<hr>
+
+<h2>Exemplos de string de conexão</h2>
 
 <p>public static string SQLServerConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Votacao;Data Source=SANTOS-PC\SQLEXPRESS;";</p>
 
