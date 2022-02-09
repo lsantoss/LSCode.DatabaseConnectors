@@ -1,10 +1,22 @@
-# LSCode.ConexoesBD
+# LSCode.DatabaseConnectors
  Oferece códigos para facilitar conexões com bancos de dados nos projetos da LSCode
 
 <br>
 
-<p>Pacote NuGet: LSCode.Facilitador.Api</p>
+<p>Pacote NuGet: LSCode.DatabaseConnectors</p>
 <p>Tipo do Projeto: .Net Standard 2.0</p>
+
+<br>
+
+<p>Dependências:</p>
+<p>Pacote NuGet: FirebirdSql.Data.FirebirdClient</p>
+<p>Pacote NuGet: MongoDB.Driver</p>
+<p>Pacote NuGet: MySql.Data</p>
+<p>Pacote NuGet: Npgsql</p>
+<p>Pacote NuGet: Oracle.ManagedDataAccess.Core</p>
+<p>Pacote NuGet: StackExchange.Redis</p>
+<p>Pacote NuGet: System.Data.SqlClient</p>
+<p>Pacote NuGet: System.Data.SQLite.Core</p>
 
 <hr>
 

@@ -5,19 +5,19 @@
     <Authors>LSCode</Authors>
     <Copyright>LSCode</Copyright>
     <Description>Oferece códigos para facilitar conexões com bancos de dados nos projetos da LSCode</Description>
-    <AssemblyVersion>2021.11.18.1</AssemblyVersion>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AssemblyVersion>2022.02.09.1</AssemblyVersion>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/lsantoss/LSCode.ConexoesBD</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/lsantoss/LSCode.ConexoesBD</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>LSCode</PackageTags>
     <PackageReleaseNotes>Inclusão de conexões com Firebird e Redis</PackageReleaseNotes>
     <PackageIcon>LSCodePackageIcon.png</PackageIcon>
-    <Version>2.0</Version>
+    <Version>2.5</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <FileVersion>2.0.0.0</FileVersion>
+    <FileVersion>2.5.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
