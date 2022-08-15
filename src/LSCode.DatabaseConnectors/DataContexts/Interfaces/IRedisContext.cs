@@ -1,7 +1,7 @@
 ﻿using StackExchange.Redis;
 using System;
 
-namespace LSCode.DatabaseConnectors.Interfaces
+namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
 {
     /// <summary>Provides contract for implementing Redis connections.</summary>
     public interface IRedisContext : IDisposable

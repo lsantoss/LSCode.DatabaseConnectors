@@ -1,6 +1,6 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
 using LSCode.DatabaseConnectors.DataContexts;
-using LSCode.DatabaseConnectors.Interfaces;
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;

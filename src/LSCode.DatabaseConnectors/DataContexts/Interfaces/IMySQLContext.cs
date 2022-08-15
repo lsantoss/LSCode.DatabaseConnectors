@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 
-namespace LSCode.DatabaseConnectors.Interfaces
+namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
 {
     /// <summary>Provides contract for implementing MySQL connections.</summary>
     public interface IMySQLContext : IDisposable

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 
-namespace LSCode.DatabaseConnectors.Interfaces
+namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
 {
     /// <summary>Provides contract for implementing SQLServer connections.</summary>
     public interface ISQLServerContext : IDisposable

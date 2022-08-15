@@ -1,5 +1,5 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.Interfaces;
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using System;
@@ -28,5 +28,15 @@ namespace LSCode.DatabaseConnectors.DataContexts
             if (Connetion != null)
                 Connetion = null;
         }
+
+        /// <summary>Gets a collection.</summary>
+        /// <typeparam name="T">The document type.</typeparam>
+        /// <returns>An implementation of a collection.</returns>
+        public IMongoCollection<T> GetCollection<T>() => Connetion.GetCollection<T>(typeof(T).Name);
+
+        /// <summary>Gets a collection.</summary>
+        /// <typeparam name="T">The document type.</typeparam>
+        /// <returns>An implementation of a collection.</returns>
+        public IMongoCollection<T> GetCollection<T>(string collectionName) => Connetion.GetCollection<T>(collectionName);
     }
 }

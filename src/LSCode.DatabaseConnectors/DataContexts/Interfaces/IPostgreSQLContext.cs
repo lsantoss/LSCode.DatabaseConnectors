@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System;
 
-namespace LSCode.DatabaseConnectors.Interfaces
+namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
 {
     /// <summary>Provides contract for implementing PostgreSQL connections.</summary>
     public interface IPostgreSQLContext : IDisposable

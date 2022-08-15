@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 
-namespace LSCode.DatabaseConnectors.Interfaces
+namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
 {
     /// <summary>Provides contract for implementing SQLite connections.</summary>
     public interface ISQLiteContext : IDisposable

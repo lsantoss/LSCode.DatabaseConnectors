@@ -1,5 +1,5 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.Interfaces;
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System;
