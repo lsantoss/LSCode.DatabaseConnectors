@@ -1,57 +1,67 @@
 # LSCode.DatabaseConnectors
- Oferece códigos para facilitar conexões com bancos de dados nos projetos da LSCode
 
-<br>
+## Application:
+Offers codes to facilitate connections to databases in LSCode projects.
 
-<p>Pacote NuGet: LSCode.DatabaseConnectors</p>
-<p>Tipo do Projeto: .Net Standard 2.0</p>
+[![NuGet version (LSCode.DatabaseConnectors)](https://img.shields.io/nuget/v/LSCode.DatabaseConnectors.svg?style=flat-square)](https://www.nuget.org/packages/LSCode.DatabaseConnectors)
 
-<br>
+---
 
-<p>Dependências:</p>
-<p>Pacote NuGet: FirebirdSql.Data.FirebirdClient</p>
-<p>Pacote NuGet: MongoDB.Driver</p>
-<p>Pacote NuGet: MySql.Data</p>
-<p>Pacote NuGet: Npgsql</p>
-<p>Pacote NuGet: Oracle.ManagedDataAccess.Core</p>
-<p>Pacote NuGet: StackExchange.Redis</p>
-<p>Pacote NuGet: System.Data.SqlClient</p>
-<p>Pacote NuGet: System.Data.SQLite.Core</p>
+## How install:
+- Click on the following link and see here some ways to install: [click here](https://www.nuget.org/packages/LSCode.DatabaseConnectors "LSCode.DatabaseConnectors page on nuget.org").
 
-<hr>
+---
 
-<h2>Conexões disponíveis</h2>
-<dl>
-  <dt>Bancos Realacionais</dt>
-  <dd>SQL Server</dd>
-  <dd>MySQL</dd>
-  <dd>SQLite</dd>
-  <dd>PostgreSQL</dd>
-  <dd>Oracle</dd>
-  <dd>Firebird</dd>
-  <dt>Bancos Não Realacionais</dt>
-  <dd>MongoDB</dd>
-  <dd>Redis</dd>
-</dl>
+## How use:
 
-<hr>
 
-<h2>Exemplos de string de conexão</h2>
+---
 
-<p>public static string SQLServerConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Votacao;Data Source=SANTOS-PC\SQLEXPRESS;";</p>
+## Frameworks:
+- .Net Standard 2.1
 
-<p>public static string SQLServerConnectionString = @"Data Source=dataSource;Initial Catalog=Votacao;User Id=usuario;Password=senha;";</p>
+---
 
-<p>public static string MySQLConnectionString = @"SERVER=localhost; DATABASE=votacao; UID=root; PASSWORD=root;";</p>
+## Currently supported:
 
-<p>public static string SQLiteConnectionString = @"Data Source = C:\BancosSQLite\Votacao.db; Version=3;";</p>
+- Relational databases
+  - Firebird
+  - MySQL
+  - Oracle
+  - PostgreSQL
+  - SQLite
+  - SQL Server
 
-<p>public static string PostgreSQLConnectionString = @"Server=127.0.0.1; Port=5432;User Id = postgres; Password=root; Database=Votacao;";</p>
+- Non-relational databases
+  - MongoDB
+  - Redis
 
-<p>public static string OracleConnectionString = @"User Id=SYSTEM;Password=root;Data Source=localhost:1521/xe;";</p>
+---
 
-<p>public static string FirebirdConnectionString = @"Server=localhost; Database=C:\Votacao.FDB; User=SYSDBA; Password=masterkey;";</p>
+## Dependencies:
+- FirebirdSql.Data.FirebirdClient
+- Microsoft.Extensions.Configuration.Abstractions
+- Microsoft.Extensions.DependencyInjection.Abstractions
+- MongoDB.Driver
+- MySql.Data
+- Npgsql
+- Oracle.ManagedDataAccess.Core
+- StackExchange.Redis
+- System.Data.SqlClient
+- System.Data.SQLite.Core
 
-<p>public static string MongoDBConnectionString = @"mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false";</p>
+---
 
-<p>public static string RedisConnectionString = @"localhost";</p>
+## Connection string examples:
+
+| Database | Connection String |
+|--|--|
+| SQL Server | Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=database;Data Source=SANTOS-PC\SQLEXPRESS; |
+| SQL Server | Data Source=dataSource;Initial Catalog=database;User Id=user;Password=password; |
+| MySQL | SERVER=localhost; DATABASE=database; UID=root; PASSWORD=root; |
+| SQLite | Data Source = C:\database.db; Version=3; |
+| PostgreSQL | User Id=SYSTEM;Password=root;Data Source=localhost:1521/xe; |
+| Oracle | User Id=userId;Password=password;Data Source=dataSource; |
+| Firebird | Server=localhost; Database=C:\database.FDB; User=SYSDBA; Password=masterkey; |
+| MongoDB | mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false |
+| Redis | localhost |
