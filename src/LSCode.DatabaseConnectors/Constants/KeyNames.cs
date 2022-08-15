@@ -1,4 +1,7 @@
-﻿namespace LSCode.DatabaseConnectors.Constants
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("LSCode.DatabaseConnectors.Test.Unit")]
+namespace LSCode.DatabaseConnectors.Constants
 {
     /// <summary>Provides all key names present in this package.</summary>
     internal static class KeyNames
