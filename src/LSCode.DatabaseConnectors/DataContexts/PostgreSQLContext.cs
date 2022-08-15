@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class PostgreSQLContext : IPostgreSQLContext
     {
         /// <value>Represents a connection to a PostgreSQL database.</value>
-        public NpgsqlConnection Connetion { get; private set; }
+        public NpgsqlConnection Connection { get; private set; }
 
         /// <summary>PostgreSQLContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public PostgreSQLContext(IConfiguration configuration)
         {
-            Connetion = new NpgsqlConnection(configuration[KeyNames.ConnectionStringPostgreSQL]);
-            Connetion.Open();
+            Connection = new NpgsqlConnection(configuration[KeyNames.ConnectionStringPostgreSQL]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

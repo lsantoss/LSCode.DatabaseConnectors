@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class OracleContext : IOracleContext
     {
         /// <value>Represents a connection to a Oracle database.</value>
-        public OracleConnection Connetion { get; private set; }
+        public OracleConnection Connection { get; private set; }
 
         /// <summary>OracleContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public OracleContext(IConfiguration configuration)
         {
-            Connetion = new OracleConnection(configuration[KeyNames.ConnectionStringOracle]);
-            Connetion.Open();
+            Connection = new OracleConnection(configuration[KeyNames.ConnectionStringOracle]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

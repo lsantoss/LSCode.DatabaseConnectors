@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface ISQLiteContext : IDisposable
     {
         /// <value>Represents a connection to a SQLite database.</value>
-        SQLiteConnection Connetion { get; }
+        SQLiteConnection Connection { get; }
     }
 }

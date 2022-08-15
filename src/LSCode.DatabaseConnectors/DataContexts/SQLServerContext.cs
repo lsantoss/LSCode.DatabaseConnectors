@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class SQLServerContext : ISQLServerContext
     {
         /// <value>Represents a connection to a SQLServer database.</value>
-        public SqlConnection Connetion { get; private set; }
+        public SqlConnection Connection { get; private set; }
 
         /// <summary>SQLServerContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public SQLServerContext(IConfiguration configuration)
         {
-            Connetion = new SqlConnection(configuration[KeyNames.ConnectionStringSQLServer]);
-            Connetion.Open();
+            Connection = new SqlConnection(configuration[KeyNames.ConnectionStringSQLServer]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

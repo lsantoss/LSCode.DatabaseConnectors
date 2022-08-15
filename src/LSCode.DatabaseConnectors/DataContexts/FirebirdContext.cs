@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class FirebirdContext : IFirebirdContext
     {
         /// <value>Represents a connection to a Firebird database.</value>
-        public FbConnection Connetion { get; private set; }
+        public FbConnection Connection { get; private set; }
 
         /// <summary>FirebirdContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public FirebirdContext(IConfiguration configuration)
         {
-            Connetion = new FbConnection(configuration[KeyNames.ConnectionStringFirebird]);
-            Connetion.Open();
+            Connection = new FbConnection(configuration[KeyNames.ConnectionStringFirebird]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

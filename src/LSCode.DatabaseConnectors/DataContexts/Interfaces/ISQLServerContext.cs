@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface ISQLServerContext : IDisposable
     {
         /// <value>Represents a connection to a SQLServer database.</value>
-        SqlConnection Connetion { get; }
+        SqlConnection Connection { get; }
     }
 }

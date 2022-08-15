@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IOracleContext : IDisposable
     {
         /// <value>Represents a connection to a Oracle database.</value>
-        OracleConnection Connetion { get; }
+        OracleConnection Connection { get; }
     }
 }

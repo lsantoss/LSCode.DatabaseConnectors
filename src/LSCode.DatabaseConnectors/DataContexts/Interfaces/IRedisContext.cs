@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IRedisContext : IDisposable
     {
         /// <value>Representa uma conexão com um banco de dados Redis.</value>
-        ConnectionMultiplexer Connetion { get; }
+        ConnectionMultiplexer Connection { get; }
     }
 }

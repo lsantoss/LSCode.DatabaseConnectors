@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class SQLiteContext : ISQLiteContext
     {
         /// <value>Represents a connection to a SQLite database.</value>
-        public SQLiteConnection Connetion { get; private set; }
+        public SQLiteConnection Connection { get; private set; }
 
         /// <summary>SQLiteContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public SQLiteContext(IConfiguration configuration)
         {
-            Connetion = new SQLiteConnection(configuration[KeyNames.ConnectionStringSQLite]);
-            Connetion.Open();
+            Connection = new SQLiteConnection(configuration[KeyNames.ConnectionStringSQLite]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

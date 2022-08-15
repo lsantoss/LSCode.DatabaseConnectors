@@ -7,7 +7,7 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IMongoDBContext : IDisposable
     {
         /// <value>Represents a connection to a MongoDB database.</value>
-        IMongoDatabase Connetion { get; }
+        IMongoDatabase Connection { get; }
 
         /// <summary>Gets a collection.</summary>
         /// <typeparam name="T">The document type.</typeparam>

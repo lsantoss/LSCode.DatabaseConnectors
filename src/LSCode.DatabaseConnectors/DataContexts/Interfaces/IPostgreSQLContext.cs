@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IPostgreSQLContext : IDisposable
     {
         /// <value>Represents a connection to a PostgreSQL database.</value>
-        NpgsqlConnection Connetion { get; }
+        NpgsqlConnection Connection { get; }
     }
 }

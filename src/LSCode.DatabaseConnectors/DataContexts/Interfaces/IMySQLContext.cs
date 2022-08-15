@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IMySQLContext : IDisposable
     {
         /// <value>Represents a connection to a MySQL database.</value>
-        MySqlConnection Connetion { get; }
+        MySqlConnection Connection { get; }
     }
 }

@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class MySQLContext : IMySQLContext
     {
         /// <value>Represents a connection to a MySQL database.</value>
-        public MySqlConnection Connetion { get; private set; }
+        public MySqlConnection Connection { get; private set; }
 
         /// <summary>MySQLContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -19,16 +19,16 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public MySQLContext(IConfiguration configuration)
         {
-            Connetion = new MySqlConnection(configuration[KeyNames.ConnectionStringMySQL]);
-            Connetion.Open();
+            Connection = new MySqlConnection(configuration[KeyNames.ConnectionStringMySQL]);
+            Connection.Open();
         }
 
         /// <summary>Closes connections used by the current class.</summary>
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.State != ConnectionState.Closed)
-                Connetion.Close();
+            if (Connection.State != ConnectionState.Closed)
+                Connection.Close();
         }
     }
 }

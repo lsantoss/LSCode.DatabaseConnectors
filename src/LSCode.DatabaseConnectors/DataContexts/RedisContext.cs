@@ -10,7 +10,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
     public class RedisContext : IRedisContext
     {
         /// <value>Represents a connection to a Redis database.</value>
-        public ConnectionMultiplexer Connetion { get; private set; }
+        public ConnectionMultiplexer Connection { get; private set; }
 
         /// <summary>RedisContext class constructor.</summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
@@ -18,7 +18,7 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public RedisContext(IConfiguration configuration)
         {
-            Connetion = new Lazy<ConnectionMultiplexer>(() => { 
+            Connection = new Lazy<ConnectionMultiplexer>(() => { 
                 return ConnectionMultiplexer.Connect(configuration[KeyNames.ConnectionStringRedis]); 
             }).Value;
         }
@@ -27,8 +27,8 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error closing used connections</exception>
         public void Dispose()
         {
-            if (Connetion.IsConnected)
-                Connetion.Close();
+            if (Connection.IsConnected)
+                Connection.Close();
         }
     }
 }

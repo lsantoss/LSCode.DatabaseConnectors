@@ -7,6 +7,6 @@ namespace LSCode.DatabaseConnectors.DataContexts.Interfaces
     public interface IFirebirdContext : IDisposable
     {
         /// <value>Represents a connection to a Firebird database.</value>
-        FbConnection Connetion { get; }
+        FbConnection Connection { get; }
     }
 }
