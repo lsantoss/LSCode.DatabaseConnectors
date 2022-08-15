@@ -28,7 +28,7 @@ After that, you must configure the environment variables and do the dependency i
 
 ## Firebird
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -44,7 +44,7 @@ services.AddFirebirdContext(Configuration);
 
 ## MongoDB
 
-In the appsettings.json file add the following keys
+In the `appsettings.json` file add the following keys
 
 ```json
 {
@@ -61,7 +61,7 @@ services.AddMongoDBContext(Configuration);
 
 ## MySQL
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -77,7 +77,7 @@ services.AddMySQLContext(Configuration);
 
 ## Oracle
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -93,7 +93,7 @@ services.AddOracleContext(Configuration);
 
 ## PostgreSQL
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -109,7 +109,7 @@ services.AddPostgreSQLContext(Configuration);
 
 ## Redis
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -125,7 +125,7 @@ services.AddRedisContext(Configuration);
 
 ## SQLite
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
@@ -141,7 +141,7 @@ services.AddSQLiteContext(Configuration);
 
 ## SQLServer
 
-In the appsettings.json file add the following key
+In the `appsettings.json` file add the following key
 
 ```json
 {
