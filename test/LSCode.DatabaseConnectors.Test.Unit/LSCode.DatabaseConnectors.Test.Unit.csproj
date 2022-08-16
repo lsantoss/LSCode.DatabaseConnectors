@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.18.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
     <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
@@ -16,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\LSCode.DatabaseConnectors\LSCode.DatabaseConnectors.csproj" />
+    <ProjectReference Include="..\LSCode.DatabaseConnectors.Test.Tools\LSCode.DatabaseConnectors.Test.Tools.csproj" />
   </ItemGroup>
 
 </Project>

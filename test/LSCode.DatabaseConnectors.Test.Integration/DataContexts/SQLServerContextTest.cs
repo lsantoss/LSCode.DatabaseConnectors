@@ -1,4 +1,5 @@
 ﻿using LSCode.DatabaseConnectors.DataContexts;
+using LSCode.DatabaseConnectors.Test.Tools.Extensions;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
@@ -12,12 +13,14 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         private readonly string _connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=LSCode.DatabaseConnectors.Test;Data Source=SANTOS-PC\\SQLEXPRESS;";
 
         [Test]
-        public void Test_Valid()
+        public void Constructor_Valid()
         {
             var configuration = new Mock<IConfiguration>();
             configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
 
             var dataContext = new SQLServerContext(configuration.Object);
+
+            TestContext.WriteLine(dataContext.ToJson());
 
             Assert.That(dataContext.Connection.State, Is.EqualTo(ConnectionState.Open));
         }
