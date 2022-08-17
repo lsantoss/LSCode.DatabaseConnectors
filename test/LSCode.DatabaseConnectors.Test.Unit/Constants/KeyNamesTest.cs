@@ -1,10 +1,9 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.Test.Tools.Base.Unit;
 using NUnit.Framework;
 
 namespace LSCode.DatabaseConnectors.Test.Unit.Constants
 {
-    internal class KeyNamesTest : UnitTest
+    internal class KeyNamesTest
     {
         [Test]
         public void IConfigurationNull_Text_Valid()

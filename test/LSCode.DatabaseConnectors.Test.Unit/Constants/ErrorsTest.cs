@@ -1,13 +1,10 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.Test.Tools.Base.Unit;
 using NUnit.Framework;
 
 namespace LSCode.DatabaseConnectors.Test.Unit.Constants
 {
-    internal class ErrorsTest : UnitTest
+    internal class ErrorsTest
     {
-        private readonly string _keyNullEmptyOrWhiteSpace = @"";
-
         [Test]
         public void IConfigurationNull_Text_Valid()
         {

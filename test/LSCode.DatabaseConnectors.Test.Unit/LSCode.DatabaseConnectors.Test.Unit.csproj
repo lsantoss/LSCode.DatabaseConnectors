@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\LSCode.DatabaseConnectors\LSCode.DatabaseConnectors.csproj" />
-    <ProjectReference Include="..\LSCode.DatabaseConnectors.Test.Tools\LSCode.DatabaseConnectors.Test.Tools.csproj" />
   </ItemGroup>
 
 </Project>
