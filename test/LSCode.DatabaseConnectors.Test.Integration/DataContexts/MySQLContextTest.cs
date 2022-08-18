@@ -2,26 +2,25 @@
 using LSCode.DatabaseConnectors.DataContexts;
 using Microsoft.Extensions.Configuration;
 using Moq;
+using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
-    internal class SQLServerContextTest
+    internal class MySQLContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringSQLServer";
-        private readonly string _connectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=LSCode.DatabaseConnectors.Test;Data Source=SANTOS-PC\SQLEXPRESS;";
+        private readonly string _connectionStringKey = "ConnectionStringMySQL";
+        private readonly string _connectionString = @"SERVER=localhost; DATABASE=LSCode.DatabaseConnectors.Test; UID=root; PASSWORD=root;";
 
-        public SQLServerContextTest()
+        public MySQLContextTest()
         {
-            var connectionStringMaster = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=SANTOS-PC\SQLEXPRESS;";
+            var connectionStringMaster = @"SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
 
-            using var connection = new SqlConnection(connectionStringMaster);
+            using var connection = new MySqlConnection(connectionStringMaster);
             connection.Open();
 
-            var query = @"IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'LSCode.DatabaseConnectors.Test')
-                          CREATE DATABASE [LSCode.DatabaseConnectors.Test]";
+            var query = @"CREATE DATABASE IF NOT EXISTS `LSCode.DatabaseConnectors.Test`;";
 
             connection.Execute(query);
             connection.Close();
@@ -33,7 +32,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
             var configuration = new Mock<IConfiguration>();
             configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
 
-            var dataContext = new SQLServerContext(configuration.Object);
+            var dataContext = new MySQLContext(configuration.Object);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -46,7 +45,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
             var configuration = new Mock<IConfiguration>();
             configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
 
-            var dataContext = new SQLServerContext(configuration.Object);
+            var dataContext = new MySQLContext(configuration.Object);
 
             dataContext.Dispose();
 
