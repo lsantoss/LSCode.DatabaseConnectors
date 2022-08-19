@@ -190,13 +190,12 @@ services.AddSQLServerContext(Configuration);
 ## Connection string examples:
 
 | Database | Connection String |
-|--|--|
-| SQL Server | Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=database;Data Source=PC\SQLEXPRESS; |
-| SQL Server | Data Source=dataSource;Initial Catalog=database;User Id=user;Password=password; |
-| MySQL | SERVER=localhost; DATABASE=database; UID=root; PASSWORD=root; |
-| SQLite | Data Source = C:\database.db; Version=3; |
-| PostgreSQL | User Id=SYSTEM;Password=root;Data Source=localhost:1521/xe; |
-| Oracle | User Id=userId;Password=password;Data Source=dataSource; |
+| -- | -- |
 | Firebird | Server=localhost; Database=C:\database.FDB; User=SYSDBA; Password=masterkey; |
 | MongoDB | mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false |
+| MySQL | SERVER=localhost; DATABASE=LSCode.DatabaseConnectors.Test; UID=root; PASSWORD=root; |
+| Oracle | User Id=userId;Password=password;Data Source=dataSource; |
+| PostgreSQL | Server=localhost;Port=5432;Database=LSCode.DatabaseConnectors.Test;User Id=postgres;Password=root; |
 | Redis | localhost |
+| SQLite | Data Source=C:\LSCode.DatabaseConnectors.Test.sqlite;Version=3; |
+| SQL Server | Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=LSCode.DatabaseConnectors.Test;Data Source=SANTOS-PC\SQLEXPRESS; |
