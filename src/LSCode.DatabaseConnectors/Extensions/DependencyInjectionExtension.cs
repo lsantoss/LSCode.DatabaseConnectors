@@ -10,7 +10,9 @@ namespace LSCode.DatabaseConnectors.Extensions
     /// <summary>Provides the implementation to facilitate dependency injection of the features present in this package.</summary>
     public static class DependencyInjectionExtension
     {
-        /// <summary>Extension to facilitate the use of connection contexts in Firebird databases.</summary>
+        /// <summary>Extension to use of connection contexts in Firebird databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddFirebirdContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -24,7 +26,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in MongoDB databases.</summary>
+        /// <summary>Extension to use of connection contexts in MongoDB databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddMongoDBContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -41,7 +45,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in MySQL databases.</summary>
+        /// <summary>Extension to use of connection contexts in MySQL databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddMySQLContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -55,7 +61,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in Oracle databases.</summary>
+        /// <summary>Extension to use of connection contexts in Oracle databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddOracleContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -69,7 +77,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in PostgreSQL databases.</summary>
+        /// <summary>Extension to use of connection contexts in PostgreSQL databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddPostgreSQLContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -83,7 +93,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in Redis databases.</summary>
+        /// <summary>Extension to use of connection contexts in Redis databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddRedisContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -97,7 +109,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in SQLite databases.</summary>
+        /// <summary>Extension to use of connection contexts in SQLite databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddSQLiteContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)
@@ -111,7 +125,9 @@ namespace LSCode.DatabaseConnectors.Extensions
             return services;
         }
 
-        /// <summary>Extension to facilitate the use of connection contexts in SQLServer databases.</summary>
+        /// <summary>Extension to use of connection contexts in SQLServer databases.</summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public static IServiceCollection AddSQLServerContext(this IServiceCollection services, IConfiguration configuration)
         {
             if (configuration == null)

@@ -15,9 +15,9 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 
         public SQLServerContextTest()
         {
-            var connectionStringMaster = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=SANTOS-PC\SQLEXPRESS;";
+            var connectionStringDefaultDatabase = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=SANTOS-PC\SQLEXPRESS;";
 
-            using var connection = new SqlConnection(connectionStringMaster);
+            using var connection = new SqlConnection(connectionStringDefaultDatabase);
             connection.Open();
 
             var query = @"IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'LSCode.DatabaseConnectors.Test')

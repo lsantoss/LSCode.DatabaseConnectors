@@ -2,27 +2,27 @@
 using LSCode.DatabaseConnectors.DataContexts;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using MySql.Data.MySqlClient;
 using NUnit.Framework;
+using Oracle.ManagedDataAccess.Client;
 using System.Data;
 
 namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
-    internal class MySQLContextTest
+    internal class OracleContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringMySQL";
-        private readonly string _connectionString = "SERVER=localhost; DATABASE=LSCode.DatabaseConnectors.Test; UID=root; PASSWORD=root;";
+        private readonly string _connectionStringKey = "ConnectionStringOracle";
+        private readonly string _connectionString = "User ID=SYSTEM;Password=root;Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = xe)));Pooling=true;Connection Lifetime=300;Max Pool Size=20;";
 
-        public MySQLContextTest()
+        public OracleContextTest()
         {
-            var connectionStringDefaultDatabase = "SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
+            var connectionStringDefaultDatabase = "User ID=SYSTEM;Password=root;Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = xe)));Pooling=true;Connection Lifetime=300;Max Pool Size=20;";
 
-            using var connection = new MySqlConnection(connectionStringDefaultDatabase);
+            using var connection = new OracleConnection(connectionStringDefaultDatabase);
             connection.Open();
 
-            var query = "CREATE DATABASE IF NOT EXISTS `LSCode.DatabaseConnectors.Test`;";
+            //var query = "";
 
-            connection.Execute(query);
+            //connection.Execute(query);
             connection.Close();
         }
 
@@ -32,7 +32,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
             var configuration = new Mock<IConfiguration>();
             configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
 
-            var dataContext = new MySQLContext(configuration.Object);
+            var dataContext = new OracleContext(configuration.Object);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -45,7 +45,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
             var configuration = new Mock<IConfiguration>();
             configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
 
-            var dataContext = new MySQLContext(configuration.Object);
+            var dataContext = new OracleContext(configuration.Object);
 
             dataContext.Dispose();
 

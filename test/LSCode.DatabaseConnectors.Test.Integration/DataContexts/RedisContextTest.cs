@@ -8,7 +8,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
     internal class RedisContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringRedis";
-        private readonly string _connectionString = $@"localhost";
+        private readonly string _connectionString = "localhost";
 
         [Test]
         public void Constructor_Valid()

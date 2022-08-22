@@ -12,13 +12,13 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
     internal class PostgreSQLContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringPostgreSQL";
-        private readonly string _connectionString = @"Server=localhost;Port=5432;Database=LSCode.DatabaseConnectors.Test;User Id=postgres;Password=root;";
+        private readonly string _connectionString = "Server=localhost;Port=5432;Database=LSCode.DatabaseConnectors.Test;User Id=postgres;Password=root;";
 
         public PostgreSQLContextTest()
         {
-            var connectionStringMaster = @"Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=root;";
+            var connectionStringDefaultDatabase = "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=root;";
 
-            using var connection = new NpgsqlConnection(connectionStringMaster);
+            using var connection = new NpgsqlConnection(connectionStringDefaultDatabase);
             connection.Open();
 
             var databaseExistQuery = "SELECT datname FROM pg_database WHERE datname = 'LSCode.DatabaseConnectors.Test'";
