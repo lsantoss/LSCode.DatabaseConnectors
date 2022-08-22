@@ -10,14 +10,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
     internal class SQLiteContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringSQLite";
-        private readonly string _connectionString = $@"Data Source={AppDomain.CurrentDomain.BaseDirectory}\LSCode.DatabaseConnectors.Test.sqlite;Version=3;";
-
-        public SQLiteContextTest()
-        {
-            var connection = new System.Data.SQLite.SQLiteConnection(_connectionString);
-            connection.Open();
-            connection.Close();
-        }
+        private readonly string _connectionString = $@"Data Source={AppDomain.CurrentDomain.BaseDirectory}\DatabaseName.sqlite;Version=3;";
 
         [Test]
         public void Constructor_Valid()

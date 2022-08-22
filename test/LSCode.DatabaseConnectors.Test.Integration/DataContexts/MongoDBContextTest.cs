@@ -11,7 +11,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         private readonly string _connectionString = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false";
 
         private readonly string _databaseNameKey = "DatabaseNameMongoDB";
-        private readonly string _databaseName = "LSCodeDatabaseConnectorsTest";
+        private readonly string _databaseName = "DatabaseName";
 
         [Test]
         public void Constructor_Valid()

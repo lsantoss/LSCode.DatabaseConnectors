@@ -1,8 +1,6 @@
-﻿using Dapper;
-using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using System.Data;
 
@@ -11,20 +9,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
     internal class MySQLContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringMySQL";
-        private readonly string _connectionString = "SERVER=localhost; DATABASE=LSCode.DatabaseConnectors.Test; UID=root; PASSWORD=root;";
-
-        public MySQLContextTest()
-        {
-            var connectionStringDefaultDatabase = "SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
-
-            using var connection = new MySqlConnection(connectionStringDefaultDatabase);
-            connection.Open();
-
-            var query = "CREATE DATABASE IF NOT EXISTS `LSCode.DatabaseConnectors.Test`;";
-
-            connection.Execute(query);
-            connection.Close();
-        }
+        private readonly string _connectionString = "SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
 
         [Test]
         public void Constructor_Valid()

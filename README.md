@@ -193,9 +193,9 @@ services.AddSQLServerContext(Configuration);
 | -- | -- |
 | Firebird | Server=localhost; Database=C:\database.FDB; User=SYSDBA; Password=masterkey; |
 | MongoDB | mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false |
-| MySQL | SERVER=localhost; DATABASE=LSCode.DatabaseConnectors.Test; UID=root; PASSWORD=root; |
-| Oracle | User Id=userId;Password=password;Data Source=dataSource; |
+| MySQL | SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root; |
+| Oracle | User ID=SYSTEM;Password=root;Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = xe)));Pooling=true;Connection Lifetime=300;Max Pool Size=20; |
 | PostgreSQL | Server=localhost;Port=5432;Database=LSCode.DatabaseConnectors.Test;User Id=postgres;Password=root; |
 | Redis | localhost |
-| SQLite | Data Source=C:\LSCode.DatabaseConnectors.Test.sqlite;Version=3; |
-| SQL Server | Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=LSCode.DatabaseConnectors.Test;Data Source=SANTOS-PC\SQLEXPRESS; |
+| SQLite | Data Source=C:\database.sqlite;Version=3; |
+| SQL Server | Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=PC\SQLEXPRESS; |

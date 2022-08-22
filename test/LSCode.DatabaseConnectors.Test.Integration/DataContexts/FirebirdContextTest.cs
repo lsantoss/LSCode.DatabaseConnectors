@@ -12,16 +12,12 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
     internal class FirebirdContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringFirebird";
-        private readonly string _connectionString = $@"Server=localhost; Database={AppDomain.CurrentDomain.BaseDirectory}\LSCode.DatabaseConnectors.Test.FDB; User=SYSDBA; Password=masterkey;";
+        private readonly string _connectionString = $@"Server=localhost; Database={AppDomain.CurrentDomain.BaseDirectory}\DatabaseName.FDB; User=SYSDBA; Password=masterkey;";
 
         public FirebirdContextTest()
         {
-            if (!File.Exists($@"{AppDomain.CurrentDomain.BaseDirectory}\LSCode.DatabaseConnectors.Test.FDB"))
+            if (!File.Exists($@"{AppDomain.CurrentDomain.BaseDirectory}\DatabaseName.FDB"))
                 FbConnection.CreateDatabase(_connectionString);
-
-            var connection = new FbConnection(_connectionString);
-            connection.Open();
-            connection.Close();
         }
 
         [Test]

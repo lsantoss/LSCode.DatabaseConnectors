@@ -1,37 +1,15 @@
-﻿using Dapper;
-using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using Npgsql;
 using NUnit.Framework;
 using System.Data;
-using System.Linq;
 
 namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class PostgreSQLContextTest
     {
         private readonly string _connectionStringKey = "ConnectionStringPostgreSQL";
-        private readonly string _connectionString = "Server=localhost;Port=5432;Database=LSCode.DatabaseConnectors.Test;User Id=postgres;Password=root;";
-
-        public PostgreSQLContextTest()
-        {
-            var connectionStringDefaultDatabase = "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=root;";
-
-            using var connection = new NpgsqlConnection(connectionStringDefaultDatabase);
-            connection.Open();
-
-            var databaseExistQuery = "SELECT datname FROM pg_database WHERE datname = 'LSCode.DatabaseConnectors.Test'";
-            var databaseExist = connection.Query<string>(databaseExistQuery).Any();
-
-            if (!databaseExist)
-            {
-                var query = "CREATE DATABASE \"LSCode.DatabaseConnectors.Test\" WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION LIMIT = -1;";
-                connection.Execute(query);
-            }
-
-            connection.Close();
-        }
+        private readonly string _connectionString = "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=root;";
 
         [Test]
         public void Constructor_Valid()
