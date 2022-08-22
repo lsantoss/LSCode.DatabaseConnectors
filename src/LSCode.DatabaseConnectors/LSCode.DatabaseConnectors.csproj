@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>LSCode</Authors>
     <Copyright>LSCode</Copyright>
     <Description>Offers codes to facilitate connections to databases in LSCode projects</Description>
-    <AssemblyVersion>2022.08.14.1</AssemblyVersion>
+    <AssemblyVersion>2022.08.22.1</AssemblyVersion>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</PackageProjectUrl>
@@ -20,7 +20,7 @@ Documentation for using the package.</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <FileVersion>3.0.0.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>C:\Users\l_san\Documents\Github\LSCode.DatabaseConnectors\LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -33,6 +33,10 @@ Documentation for using the package.</PackageReleaseNotes>
       <PackagePath>\</PackagePath>
     </None>
     <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
