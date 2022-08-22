@@ -5,7 +5,7 @@
     <Authors>LSCode</Authors>
     <Copyright>LSCode</Copyright>
     <Description>Offers codes to facilitate connections to databases in LSCode projects</Description>
-    <AssemblyVersion>2022.08.22.1</AssemblyVersion>
+    <AssemblyVersion>2022.08.22.2</AssemblyVersion>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</PackageProjectUrl>
@@ -16,9 +16,9 @@
 File to facilitate dependency injection of package features;
 Documentation for using the package.</PackageReleaseNotes>
     <PackageIcon>LSCodePackageIcon.png</PackageIcon>
-    <Version>3.0</Version>
+    <Version>3.0.1</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <FileVersion>3.0.0.0</FileVersion>
+    <FileVersion>3.0.1</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>

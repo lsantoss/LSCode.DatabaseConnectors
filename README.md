@@ -187,6 +187,17 @@ services.AddSQLServerContext(Configuration);
 
 ---
 
+## Dependencies (Test projects):
+- Microsoft.Extensions.Configuration.Abstractions
+- Microsoft.NET.Test.Sdk
+- Moq
+- NUnit
+- NUnit3TestAdapter
+- NUnit.Analyzers
+- coverlet.collector
+
+---
+
 ## Connection string examples:
 
 | Database | Connection String |
