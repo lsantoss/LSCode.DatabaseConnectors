@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of MySQLContext connections.</summary>
+    /// <summary>Provides implementation of MySQL connections.</summary>
     public class MySQLContext : IMySQLContext
     {
         /// <value>Represents a connection to a MySQL database.</value>

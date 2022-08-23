@@ -6,7 +6,7 @@ using System;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of MongoDBContext connections.</summary>
+    /// <summary>Provides implementation of MongoDB connections.</summary>
     public class MongoDBContext : IMongoDBContext
     {
         /// <value>Represents a connection to a MongoDB database.</value>

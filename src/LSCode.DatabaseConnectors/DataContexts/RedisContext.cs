@@ -6,7 +6,7 @@ using System;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of RedisContext connections.</summary>
+    /// <summary>Provides implementation of Redis connections.</summary>
     public class RedisContext : IRedisContext
     {
         /// <value>Represents a connection to a Redis database.</value>

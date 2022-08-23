@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of OracleContext connections.</summary>
+    /// <summary>Provides implementation of Oracle connections.</summary>
     public class OracleContext : IOracleContext
     {
         /// <value>Represents a connection to a Oracle database.</value>

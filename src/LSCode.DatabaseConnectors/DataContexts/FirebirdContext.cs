@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of FirebirdContext connections.</summary>
+    /// <summary>Provides implementation of Firebird connections.</summary>
     public class FirebirdContext : IFirebirdContext
     {
         /// <value>Represents a connection to a Firebird database.</value>

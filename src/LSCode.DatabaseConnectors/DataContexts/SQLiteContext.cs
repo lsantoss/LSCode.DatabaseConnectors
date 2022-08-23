@@ -7,7 +7,7 @@ using System.Data.SQLite;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of SQLiteContext connections.</summary>
+    /// <summary>Provides implementation of SQLite connections.</summary>
     public class SQLiteContext : ISQLiteContext
     {
         /// <value>Represents a connection to a SQLite database.</value>

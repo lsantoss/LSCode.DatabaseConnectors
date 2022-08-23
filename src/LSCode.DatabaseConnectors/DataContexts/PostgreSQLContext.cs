@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LSCode.DatabaseConnectors.DataContexts
 {
-    /// <summary>Provides implementation of PostgreSQLContext connections.</summary>
+    /// <summary>Provides implementation of PostgreSQL connections.</summary>
     public class PostgreSQLContext : IPostgreSQLContext
     {
         /// <value>Represents a connection to a PostgreSQL database.</value>
