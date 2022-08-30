@@ -72,7 +72,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -124,7 +124,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -176,7 +176,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -228,7 +228,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -280,7 +280,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -332,7 +332,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -384,7 +384,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
@@ -436,7 +436,7 @@ using LSCode.DatabaseConnectors.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (without Startup.cs) - `Program.cs` file
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
 
 ```c#
