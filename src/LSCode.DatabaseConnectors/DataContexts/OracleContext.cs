@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public OracleConnection Connection { get; private set; }
 
         /// <summary>OracleContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the Oracle database.</param>
         /// <returns>Create an instance of the OracleContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public OracleContext(IConfiguration configuration)
+        public OracleContext(string connectionString)
         {
-            Connection = new OracleConnection(configuration[KeyNames.ConnectionStringOracle]);
+            Connection = new OracleConnection(connectionString);
             Connection.Open();
         }
 

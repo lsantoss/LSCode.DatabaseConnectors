@@ -1,22 +1,16 @@
 ﻿using LSCode.DatabaseConnectors.DataContexts;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
 
 namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class RedisContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringRedis";
         private readonly string _connectionString = "localhost";
 
         [Test]
         public void Constructor_Valid()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new RedisContext(configuration.Object);
+            var dataContext = new RedisContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.IsConnected}");
 
@@ -26,10 +20,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new RedisContext(configuration.Object);
+            var dataContext = new RedisContext(_connectionString);
 
             dataContext.Dispose();
 

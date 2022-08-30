@@ -1,7 +1,5 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
-using LSCode.DatabaseConnectors.Constants;
 using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Data;
 
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public FbConnection Connection { get; private set; }
 
         /// <summary>FirebirdContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the Firebird database.</param>
         /// <returns>Create an instance of the FirebirdContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public FirebirdContext(IConfiguration configuration)
+        public FirebirdContext(string connectionString)
         {
-            Connection = new FbConnection(configuration[KeyNames.ConnectionStringFirebird]);
+            Connection = new FbConnection(connectionString);
             Connection.Open();
         }
 

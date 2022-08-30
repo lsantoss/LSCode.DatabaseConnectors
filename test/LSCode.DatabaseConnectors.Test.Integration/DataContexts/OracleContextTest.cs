@@ -1,6 +1,4 @@
 ﻿using LSCode.DatabaseConnectors.DataContexts;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
 using System.Data;
 
@@ -8,16 +6,12 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class OracleContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringOracle";
         private readonly string _connectionString = "User ID=SYSTEM;Password=root;Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = xe)));Pooling=true;Connection Lifetime=300;Max Pool Size=20;";
 
         [Test]
         public void Constructor_Valid()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new OracleContext(configuration.Object);
+            var dataContext = new OracleContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -27,10 +21,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new OracleContext(configuration.Object);
+            var dataContext = new OracleContext(_connectionString);
 
             dataContext.Dispose();
 

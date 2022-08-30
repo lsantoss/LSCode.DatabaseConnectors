@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Npgsql;
 using System;
 using System.Data;
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public NpgsqlConnection Connection { get; private set; }
 
         /// <summary>PostgreSQLContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the PostgreSQL database.</param>
         /// <returns>Create an instance of the PostgreSQLContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public PostgreSQLContext(IConfiguration configuration)
+        public PostgreSQLContext(string connectionString)
         {
-            Connection = new NpgsqlConnection(configuration[KeyNames.ConnectionStringPostgreSQL]);
+            Connection = new NpgsqlConnection(connectionString);
             Connection.Open();
         }
 

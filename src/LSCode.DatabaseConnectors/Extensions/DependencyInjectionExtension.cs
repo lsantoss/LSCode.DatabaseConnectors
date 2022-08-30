@@ -1,7 +1,6 @@
 ﻿using LSCode.DatabaseConnectors.Constants;
 using LSCode.DatabaseConnectors.DataContexts;
 using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -12,131 +11,108 @@ namespace LSCode.DatabaseConnectors.Extensions
     {
         /// <summary>Extension to use of connection contexts in Firebird databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddFirebirdContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the Firebird database.</param>
+        public static IServiceCollection AddFirebirdContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringFirebird]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringFirebird} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IFirebirdContext, FirebirdContext>();
+            services.AddScoped<IFirebirdContext, FirebirdContext>(setup => new FirebirdContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in MongoDB databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddMongoDBContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the MongoDB database.</param>
+        /// <param name="databaseName">Name of the database used in the connection.</param>
+        public static IServiceCollection AddMongoDBContext(this IServiceCollection services, string connectionString, string databaseName)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringMongoDB]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringMongoDB} : {Errors.KeyNullEmptyOrWhiteSpace}");
+            if (string.IsNullOrWhiteSpace(databaseName))
+                throw new ArgumentException(Errors.DatabaseNameNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.DatabaseNameMongoDB]))
-                throw new ArgumentException($"{KeyNames.DatabaseNameMongoDB} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IMongoDBContext, MongoDBContext>();
+            services.AddScoped<IMongoDBContext, MongoDBContext>(setup => new MongoDBContext(connectionString, databaseName));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in MySQL databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddMySQLContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the MySQL database.</param>
+        public static IServiceCollection AddMySQLContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringMySQL]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringMySQL} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IMySQLContext, MySQLContext>();
+            services.AddScoped<IMySQLContext, MySQLContext>(setup => new MySQLContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in Oracle databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddOracleContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the Oracle database.</param>
+        public static IServiceCollection AddOracleContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringOracle]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringOracle} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IOracleContext, OracleContext>();
+            services.AddScoped<IOracleContext, OracleContext>(setup => new OracleContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in PostgreSQL databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddPostgreSQLContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the PostgreSQL database.</param>
+        public static IServiceCollection AddPostgreSQLContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringPostgreSQL]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringPostgreSQL} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IPostgreSQLContext, PostgreSQLContext>();
+            services.AddScoped<IPostgreSQLContext, PostgreSQLContext>(setup => new PostgreSQLContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in Redis databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddRedisContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the Redis database.</param>
+        public static IServiceCollection AddRedisContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringRedis]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringRedis} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<IRedisContext, RedisContext>();
+            services.AddScoped<IRedisContext, RedisContext>(setup => new RedisContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in SQLite databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddSQLiteContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the SQLite database.</param>
+        public static IServiceCollection AddSQLiteContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringSQLite]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringSQLite} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<ISQLiteContext, SQLiteContext>();
+            services.AddScoped<ISQLiteContext, SQLiteContext>(setup => new SQLiteContext(connectionString));
 
             return services;
         }
 
         /// <summary>Extension to use of connection contexts in SQLServer databases.</summary>
         /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
-        public static IServiceCollection AddSQLServerContext(this IServiceCollection services, IConfiguration configuration)
+        /// <param name="connectionString">The connection used to open the SQLServer database.</param>
+        public static IServiceCollection AddSQLServerContext(this IServiceCollection services, string connectionString)
         {
-            if (configuration == null)
-                throw new ArgumentException(Errors.IConfigurationNull);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentException(Errors.ConnectionStingNullEmptyOrWhiteSpace);
 
-            if (string.IsNullOrWhiteSpace(configuration[KeyNames.ConnectionStringSQLServer]))
-                throw new ArgumentException($"{KeyNames.ConnectionStringSQLServer} : {Errors.KeyNullEmptyOrWhiteSpace}");
-
-            services.AddScoped<ISQLServerContext, SQLServerContext>();
+            services.AddScoped<ISQLServerContext, SQLServerContext>(setup => new SQLServerContext(connectionString));
 
             return services;
         }

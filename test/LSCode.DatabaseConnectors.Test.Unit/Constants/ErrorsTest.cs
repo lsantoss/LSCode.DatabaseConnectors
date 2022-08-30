@@ -6,19 +6,19 @@ namespace LSCode.DatabaseConnectors.Test.Unit.Constants
     internal class ErrorsTest
     {
         [Test]
-        public void IConfigurationNull_Text_Valid()
+        public void ConnectionStingNullEmptyOrWhiteSpace_Text_Valid()
         {
             Assert.That(
-                Errors.IConfigurationNull, 
-                Is.EqualTo("The configuration parameter cannot be null"));
+                Errors.ConnectionStingNullEmptyOrWhiteSpace,
+                Is.EqualTo("The parameter connectionString must contain values. Cannot be null, empty or consists only of white-space characters."));
         }
 
         [Test]
-        public void KeyNullEmptyOrWhiteSpace_Text_Valid()
+        public void DatabaseNameNullEmptyOrWhiteSpace_Text_Valid()
         {
             Assert.That(
-                Errors.KeyNullEmptyOrWhiteSpace, 
-                Is.EqualTo("The key must contain values. Check if this property exists, if it contains a value or if it has the wrong name."));
+                Errors.DatabaseNameNullEmptyOrWhiteSpace, 
+                Is.EqualTo("The parameter databaseName must contain values. Cannot be null, empty or consists only of white-space characters."));
         }
     }
 }

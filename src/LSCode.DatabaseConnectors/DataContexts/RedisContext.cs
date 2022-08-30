@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using StackExchange.Redis;
 using System;
 
@@ -13,13 +11,13 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public ConnectionMultiplexer Connection { get; private set; }
 
         /// <summary>RedisContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the Redis database.</param>
         /// <returns>Create an instance of the RedisContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public RedisContext(IConfiguration configuration)
+        public RedisContext(string connectionString)
         {
             Connection = new Lazy<ConnectionMultiplexer>(() => { 
-                return ConnectionMultiplexer.Connect(configuration[KeyNames.ConnectionStringRedis]); 
+                return ConnectionMultiplexer.Connect(connectionString); 
             }).Value;
         }
 

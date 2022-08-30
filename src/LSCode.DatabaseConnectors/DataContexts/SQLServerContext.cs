@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public SqlConnection Connection { get; private set; }
 
         /// <summary>SQLServerContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the SQLServer database.</param>
         /// <returns>Create an instance of the SQLServerContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public SQLServerContext(IConfiguration configuration)
+        public SQLServerContext(string connectionString)
         {
-            Connection = new SqlConnection(configuration[KeyNames.ConnectionStringSQLServer]);
+            Connection = new SqlConnection(connectionString);
             Connection.Open();
         }
 

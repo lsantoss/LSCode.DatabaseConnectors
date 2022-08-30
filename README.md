@@ -12,151 +12,6 @@ Offers codes to facilitate connections to databases in LSCode projects.
 
 ---
 
-## How install:
-- Click on the following link and see here some ways to install: [click here](https://www.nuget.org/packages/LSCode.DatabaseConnectors "LSCode.DatabaseConnectors page on nuget.org").
-
----
-
-## How use:
-First install the package, for example:
-
-```xml
-<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
-```
-
-After that, you must configure the environment variables and do the dependency injection according to the chosen data context.
-
-## Firebird
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringFirebird": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddFirebirdContext(Configuration);
-```
-
-## MongoDB
-
-In the `appsettings.json` file add the following keys
-
-```json
-{
-  "ConnectionStringMongoDB": "value",
-  "DatabaseNameMongoDB": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddMongoDBContext(Configuration);
-```
-
-## MySQL
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringMySQL": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddMySQLContext(Configuration);
-```
-
-## Oracle
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringOracle": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddOracleContext(Configuration);
-```
-
-## PostgreSQL
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringPostgreSQL": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddPostgreSQLContext(Configuration);
-```
-
-## Redis
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringRedis": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddRedisContext(Configuration);
-```
-
-## SQLite
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringSQLite": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddSQLiteContext(Configuration);
-```
-
-## SQLServer
-
-In the `appsettings.json` file add the following key
-
-```json
-{
-  "ConnectionStringSQLServer": "value"
-}
-```
-
-Add the following line of code in the `ConfigureServices` method
-
-```c#
-services.AddSQLServerContext(Configuration);
-```
-
----
-
 ## Currently supported:
 
 - Relational databases
@@ -175,7 +30,6 @@ services.AddSQLServerContext(Configuration);
 
 ## Dependencies:
 - FirebirdSql.Data.FirebirdClient
-- Microsoft.Extensions.Configuration.Abstractions
 - Microsoft.Extensions.DependencyInjection.Abstractions
 - MongoDB.Driver
 - MySql.Data
@@ -188,13 +42,432 @@ services.AddSQLServerContext(Configuration);
 ---
 
 ## Dependencies (Test projects):
-- Microsoft.Extensions.Configuration.Abstractions
 - Microsoft.NET.Test.Sdk
-- Moq
 - NUnit
 - NUnit3TestAdapter
 - NUnit.Analyzers
 - coverlet.collector
+
+---
+
+## How install:
+- Click on the following link and see here some ways to install: [click here](https://www.nuget.org/packages/LSCode.DatabaseConnectors "LSCode.DatabaseConnectors page on nuget.org").
+
+---
+
+## How use Firebird:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddFirebirdContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+services.AddFirebirdContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IFirebirdContext _context;
+
+    public MyClass(IFirebirdContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use MongoDB:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddMongoDBContext("connectionString", "databaseName");
+
+//.Net 6 (with Startup.cs) ou less
+services.AddMongoDBContext("connectionString", "databaseName");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IMongoDBContext _context;
+
+    public MyClass(IMongoDBContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use MySQL:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddMySQLContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+services.AddMySQLContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IMySQLContext _context;
+
+    public MyClass(IMySQLContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use Oracle:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddOracleContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+services.AddOracleContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IOracleContext _context;
+
+    public MyClass(IOracleContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use PostgreSQL:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddPostgreSQLContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+services.AddPostgreSQLContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IPostgreSQLContext _context;
+
+    public MyClass(IPostgreSQLContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use Redis:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddRedisContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+servRedisices.AddRedisContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly IRedisContext _context;
+
+    public MyClass(IRedisContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use SQLite:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddSQLiteContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+servRedisices.AddSQLiteContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly ISQLiteContext _context;
+
+    public MyClass(ISQLiteContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
+
+---
+
+## How use SQLServer:
+
+First install the package, for example:
+
+```xml
+<PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
+```
+
+Add the following line of code according to the .Net version:
+- .Net 6 (without Startup.cs) - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+
+```c#
+using LSCode.DatabaseConnectors.Extensions;
+```
+
+After that, according to the .Net version configure the following file:
+- .Net 6 (without Startup.cs) - - `Program.cs` file
+- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+
+```c#
+//.Net 6 (without Startup.cs)
+builder.Services.AddSQLServerContext("connectionString");
+
+//.Net 6 (with Startup.cs) ou less
+servRedisices.AddSQLServerContext("connectionString");
+```
+
+In the file that you want to use the database connection context, you must import the following namespace:
+
+```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+```
+
+The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
+
+```c#
+namespace MyNamespace
+{
+  public class MyClass
+  {
+    private readonly ISQLServerContext _context;
+
+    public MyClass(ISQLServerContext context) => _context = context;
+
+    public Task Delete(long id) => ... _context.Connection ...;
+  }
+}
+```
 
 ---
 

@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public MySqlConnection Connection { get; private set; }
 
         /// <summary>MySQLContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the MySQL database.</param>
         /// <returns>Create an instance of the MySQLContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public MySQLContext(IConfiguration configuration)
+        public MySQLContext(string connectionString)
         {
-            Connection = new MySqlConnection(configuration[KeyNames.ConnectionStringMySQL]);
+            Connection = new MySqlConnection(connectionString);
             Connection.Open();
         }
 

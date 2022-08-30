@@ -1,6 +1,4 @@
 ﻿using LSCode.DatabaseConnectors.DataContexts;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
 using System.Data;
 
@@ -8,16 +6,12 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class MySQLContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringMySQL";
         private readonly string _connectionString = "SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
 
         [Test]
         public void Constructor_Valid()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new MySQLContext(configuration.Object);
+            var dataContext = new MySQLContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -27,10 +21,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new MySQLContext(configuration.Object);
+            var dataContext = new MySQLContext(_connectionString);
 
             dataContext.Dispose();
 

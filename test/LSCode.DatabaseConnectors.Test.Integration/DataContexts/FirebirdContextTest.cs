@@ -1,7 +1,5 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using LSCode.DatabaseConnectors.DataContexts;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
 using System;
 using System.Data;
@@ -11,7 +9,6 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class FirebirdContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringFirebird";
         private readonly string _connectionString = $@"Server=localhost; Database={AppDomain.CurrentDomain.BaseDirectory}\DatabaseName.FDB; User=SYSDBA; Password=masterkey;";
 
         public FirebirdContextTest()
@@ -23,10 +20,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Constructor_Valid()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new FirebirdContext(configuration.Object);
+            var dataContext = new FirebirdContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -36,10 +30,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new FirebirdContext(configuration.Object);
+            var dataContext = new FirebirdContext(_connectionString);
 
             dataContext.Dispose();
 

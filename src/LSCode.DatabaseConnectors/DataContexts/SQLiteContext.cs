@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using System;
 using System.Data;
 using System.Data.SQLite;
@@ -14,12 +12,12 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public SQLiteConnection Connection { get; private set; }
 
         /// <summary>SQLiteContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the SQLite database.</param>
         /// <returns>Create an instance of the SQLiteContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public SQLiteContext(IConfiguration configuration)
+        public SQLiteContext(string connectionString)
         {
-            Connection = new SQLiteConnection(configuration[KeyNames.ConnectionStringSQLite]);
+            Connection = new SQLiteConnection(connectionString);
             Connection.Open();
         }
 

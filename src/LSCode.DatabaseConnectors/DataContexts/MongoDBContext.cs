@@ -1,6 +1,4 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using MongoDB.Driver;
 using System;
 
@@ -13,12 +11,14 @@ namespace LSCode.DatabaseConnectors.DataContexts
         public IMongoDatabase Connection { get; private set; }
 
         /// <summary>MongoDBContext class constructor.</summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param name="connectionString">The connection used to open the MongoDB database.</param>
+        /// <param name="databaseName">Name of the database used in the connection.</param>
         /// <returns>Create an instance of the MongoDBContext class.</returns>
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
-        public MongoDBContext(IConfiguration configuration)
+        public MongoDBContext(string connectionString, string databaseName)
         {
-            Connection = new MongoClient(configuration[KeyNames.ConnectionStringMongoDB]).GetDatabase(configuration[KeyNames.DatabaseNameMongoDB]);
+            var client = new MongoClient(connectionString);
+            Connection = client.GetDatabase(databaseName);
         }
 
         /// <summary>Closes connections used by the current class.</summary>

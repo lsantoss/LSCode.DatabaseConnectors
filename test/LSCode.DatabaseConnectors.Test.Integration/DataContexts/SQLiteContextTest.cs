@@ -1,6 +1,4 @@
 ﻿using LSCode.DatabaseConnectors.DataContexts;
-using Microsoft.Extensions.Configuration;
-using Moq;
 using NUnit.Framework;
 using System;
 using System.Data;
@@ -9,16 +7,12 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
 {
     internal class SQLiteContextTest
     {
-        private readonly string _connectionStringKey = "ConnectionStringSQLite";
         private readonly string _connectionString = $@"Data Source={AppDomain.CurrentDomain.BaseDirectory}\DatabaseName.sqlite;Version=3;";
 
         [Test]
         public void Constructor_Valid()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new SQLiteContext(configuration.Object);
+            var dataContext = new SQLiteContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -28,10 +22,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var configuration = new Mock<IConfiguration>();
-            configuration.SetupGet(x => x[It.Is<string>(s => s == _connectionStringKey)]).Returns(_connectionString);
-
-            var dataContext = new SQLiteContext(configuration.Object);
+            var dataContext = new SQLiteContext(_connectionString);
 
             dataContext.Dispose();
 
