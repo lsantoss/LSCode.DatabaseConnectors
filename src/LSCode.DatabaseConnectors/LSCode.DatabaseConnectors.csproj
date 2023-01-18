@@ -6,7 +6,7 @@
     <Copyright>LSCode</Copyright>
     <Description>Offers codes to facilitate connections to databases in LSCode projects</Description>
     <AssemblyVersion>2023.01.18.1</AssemblyVersion>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</RepositoryUrl>
