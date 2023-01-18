@@ -50,13 +50,12 @@ Offers codes to facilitate connections to databases in LSCode projects.
 
 ---
 
-## How install:
+## How to install:
 - Click on the following link and see here some ways to install: [click here](https://www.nuget.org/packages/LSCode.DatabaseConnectors "LSCode.DatabaseConnectors page on nuget.org").
 
 ---
 
-## How use Firebird:
-
+## How to use Firebird:
 First install the package, for example:
 
 ```xml
@@ -68,7 +67,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -107,8 +106,7 @@ namespace MyNamespace
 
 ---
 
-## How use MongoDB:
-
+## How to use MongoDB:
 First install the package, for example:
 
 ```xml
@@ -120,7 +118,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -159,8 +157,7 @@ namespace MyNamespace
 
 ---
 
-## How use MySQL:
-
+## How to use MySQL:
 First install the package, for example:
 
 ```xml
@@ -172,7 +169,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -211,8 +208,7 @@ namespace MyNamespace
 
 ---
 
-## How use Oracle:
-
+## How to use Oracle:
 First install the package, for example:
 
 ```xml
@@ -224,7 +220,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -263,8 +259,7 @@ namespace MyNamespace
 
 ---
 
-## How use PostgreSQL:
-
+## How to use PostgreSQL:
 First install the package, for example:
 
 ```xml
@@ -276,7 +271,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -315,8 +310,7 @@ namespace MyNamespace
 
 ---
 
-## How use Redis:
-
+## How to use Redis:
 First install the package, for example:
 
 ```xml
@@ -328,7 +322,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -367,8 +361,7 @@ namespace MyNamespace
 
 ---
 
-## How use SQLite:
-
+## How to use SQLite:
 First install the package, for example:
 
 ```xml
@@ -380,7 +373,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -419,8 +412,7 @@ namespace MyNamespace
 
 ---
 
-## How use SQLServer:
-
+## How to use SQLServer:
 First install the package, for example:
 
 ```xml
@@ -432,7 +424,7 @@ Add the following line of code according to the .Net version:
 - .Net 6 (with Startup.cs) ou less - `Startup.cs` file
 
 ```c#
-using LSCode.DatabaseConnectors.Extensions;
+using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
 After that, according to the .Net version configure the following file:
@@ -472,7 +464,6 @@ namespace MyNamespace
 ---
 
 ## Connection string examples:
-
 | Database | Connection String |
 | -- | -- |
 | Firebird | Server=localhost; Database=C:\database.FDB; User=SYSDBA; Password=masterkey; |

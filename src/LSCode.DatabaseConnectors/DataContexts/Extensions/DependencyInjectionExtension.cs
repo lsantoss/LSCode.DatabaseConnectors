@@ -1,10 +1,9 @@
-﻿using LSCode.DatabaseConnectors.Constants;
-using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts.Constants;
 using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace LSCode.DatabaseConnectors.Extensions
+namespace LSCode.DatabaseConnectors.DataContexts.Extensions
 {
     /// <summary>Provides the implementation to facilitate dependency injection of the features present in this package.</summary>
     public static class DependencyInjectionExtension

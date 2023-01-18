@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("LSCode.DatabaseConnectors.Test.Unit")]
-namespace LSCode.DatabaseConnectors.Constants
+namespace LSCode.DatabaseConnectors.DataContexts.Constants
 {
     /// <summary>Provides all error messages present in that package.</summary>
     internal static class Errors

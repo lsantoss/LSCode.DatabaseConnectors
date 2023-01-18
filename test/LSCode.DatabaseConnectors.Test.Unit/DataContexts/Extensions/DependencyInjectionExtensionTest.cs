@@ -1,9 +1,9 @@
-﻿using LSCode.DatabaseConnectors.Extensions;
+﻿using LSCode.DatabaseConnectors.DataContexts.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using System;
 
-namespace LSCode.DatabaseConnectors.Test.Unit.Extensions
+namespace LSCode.DatabaseConnectors.Test.Unit.DataContexts.Extensions
 {
     internal class DependencyInjectionExtensionTest
     {
@@ -19,7 +19,7 @@ namespace LSCode.DatabaseConnectors.Test.Unit.Extensions
 
             var count = services.Count;
             var serviceType = services[0].ServiceType.Name;
-            
+
             Assert.Multiple(() =>
             {
                 Assert.That(count, Is.EqualTo(1));

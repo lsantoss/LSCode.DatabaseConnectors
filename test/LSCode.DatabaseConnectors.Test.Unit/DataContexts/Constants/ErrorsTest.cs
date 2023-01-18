@@ -1,7 +1,7 @@
-﻿using LSCode.DatabaseConnectors.Constants;
+﻿using LSCode.DatabaseConnectors.DataContexts.Constants;
 using NUnit.Framework;
 
-namespace LSCode.DatabaseConnectors.Test.Unit.Constants
+namespace LSCode.DatabaseConnectors.Test.Unit.DataContexts.Constants
 {
     internal class ErrorsTest
     {
@@ -17,7 +17,7 @@ namespace LSCode.DatabaseConnectors.Test.Unit.Constants
         public void DatabaseNameNullEmptyOrWhiteSpace_Text_Valid()
         {
             Assert.That(
-                Errors.DatabaseNameNullEmptyOrWhiteSpace, 
+                Errors.DatabaseNameNullEmptyOrWhiteSpace,
                 Is.EqualTo("The parameter databaseName must contain values. Cannot be null, empty or consists only of white-space characters."));
         }
     }
