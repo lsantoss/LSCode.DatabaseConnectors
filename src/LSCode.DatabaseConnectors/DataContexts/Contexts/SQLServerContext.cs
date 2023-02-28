@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of SQLServer connections.</summary>
     public class SQLServerContext : ISQLServerContext

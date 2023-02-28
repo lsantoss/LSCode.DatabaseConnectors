@@ -1,7 +1,7 @@
-﻿using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts.Contexts;
 using NUnit.Framework;
 
-namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
+namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts.Contexts
 {
     internal class MongoDBContextTest
     {

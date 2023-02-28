@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SQLite;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of SQLite connections.</summary>
     public class SQLiteContext : ISQLiteContext

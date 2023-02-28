@@ -1,9 +1,9 @@
-﻿using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts.Contexts;
 using NUnit.Framework;
 using System;
 using System.Data;
 
-namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
+namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts.Contexts
 {
     internal class SQLiteContextTest
     {

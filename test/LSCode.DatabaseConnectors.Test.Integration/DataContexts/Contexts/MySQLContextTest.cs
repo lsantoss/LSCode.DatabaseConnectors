@@ -1,17 +1,17 @@
-﻿using LSCode.DatabaseConnectors.DataContexts;
+﻿using LSCode.DatabaseConnectors.DataContexts.Contexts;
 using NUnit.Framework;
 using System.Data;
 
-namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
+namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts.Contexts
 {
-    internal class SQLServerContextTest
+    internal class MySQLContextTest
     {
-        private readonly string _connectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=master;Data Source=SANTOS-PC\SQLEXPRESS;";
+        private readonly string _connectionString = "SERVER=localhost; DATABASE=mysql; UID=root; PASSWORD=root;";
 
         [Test]
         public void Constructor_Valid()
         {
-            var dataContext = new SQLServerContext(_connectionString);
+            var dataContext = new MySQLContext(_connectionString);
 
             TestContext.WriteLine($"Connection: {dataContext.Connection.State}");
 
@@ -21,7 +21,7 @@ namespace LSCode.DatabaseConnectors.Test.Integration.DataContexts
         [Test]
         public void Dispose_Success()
         {
-            var dataContext = new SQLServerContext(_connectionString);
+            var dataContext = new MySQLContext(_connectionString);
 
             dataContext.Dispose();
 

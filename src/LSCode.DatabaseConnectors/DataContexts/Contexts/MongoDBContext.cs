@@ -2,7 +2,7 @@
 using MongoDB.Driver;
 using System;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of MongoDB connections.</summary>
     public class MongoDBContext : IMongoDBContext

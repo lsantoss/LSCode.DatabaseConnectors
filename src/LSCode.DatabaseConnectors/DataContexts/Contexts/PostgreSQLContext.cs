@@ -3,7 +3,7 @@ using Npgsql;
 using System;
 using System.Data;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of PostgreSQL connections.</summary>
     public class PostgreSQLContext : IPostgreSQLContext

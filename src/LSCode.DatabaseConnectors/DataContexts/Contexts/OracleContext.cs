@@ -3,7 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of Oracle connections.</summary>
     public class OracleContext : IOracleContext

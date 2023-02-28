@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of MySQL connections.</summary>
     public class MySQLContext : IMySQLContext

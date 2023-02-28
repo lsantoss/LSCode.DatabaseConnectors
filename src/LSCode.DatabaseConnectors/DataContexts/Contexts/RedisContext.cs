@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using System;
 
-namespace LSCode.DatabaseConnectors.DataContexts
+namespace LSCode.DatabaseConnectors.DataContexts.Contexts
 {
     /// <summary>Provides implementation of Redis connections.</summary>
     public class RedisContext : IRedisContext
@@ -16,8 +16,9 @@ namespace LSCode.DatabaseConnectors.DataContexts
         /// <exception cref="Exception">Error connecting to the chosen database</exception>
         public RedisContext(string connectionString)
         {
-            Connection = new Lazy<ConnectionMultiplexer>(() => { 
-                return ConnectionMultiplexer.Connect(connectionString); 
+            Connection = new Lazy<ConnectionMultiplexer>(() =>
+            {
+                return ConnectionMultiplexer.Connect(connectionString);
             }).Value;
         }
 
