@@ -20,5 +20,13 @@ namespace LSCode.DatabaseConnectors.Test.Unit.DataContexts.Constants
                 Errors.DatabaseNameNullEmptyOrWhiteSpace,
                 Is.EqualTo("The parameter databaseName must contain values. Cannot be null, empty or consists only of white-space characters."));
         }
+
+        [Test]
+        public void InvalidDatabaseManagementSystem_Text_Valid()
+        {
+            Assert.That(
+                Errors.InvalidDatabaseManagementSystem,
+                Is.EqualTo("Invalid database management system."));
+        }
     }
 }

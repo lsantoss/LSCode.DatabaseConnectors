@@ -62,24 +62,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddFirebirdContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.Firebird, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-services.AddFirebirdContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.Firebird, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -91,6 +88,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -113,24 +112,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddMongoDBContext("connectionString", "databaseName");
+services.AddDataContext(DatabaseManagementSystem.MongoDB, "connectionString", "databaseName");
 
-//.Net 6 (with Startup.cs) ou less
-services.AddMongoDBContext("connectionString", "databaseName");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.MongoDB, "connectionString", "databaseName");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -142,6 +138,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -164,24 +162,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddMySQLContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.MySQL, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-services.AddMySQLContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.MySQL, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -193,6 +188,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -215,24 +212,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddOracleContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.Oracle, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-services.AddOracleContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.Oracle, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -244,6 +238,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -266,24 +262,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddPostgreSQLContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.PostgreSQL, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-services.AddPostgreSQLContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.PostgreSQL, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -295,6 +288,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -317,24 +312,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddRedisContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.Redis, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-servRedisices.AddRedisContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.Redis, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -346,6 +338,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -368,24 +362,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddSQLiteContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.SQLite, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-servRedisices.AddSQLiteContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.SQLite, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -397,6 +388,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass
@@ -419,24 +412,21 @@ First install the package, for example:
 <PackageReference Include="LSCode.DatabaseConnectors" Version="x.x.x" />
 ```
 
-Add the following line of code according to the .Net version:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file
+In the file where the services used in the application are added (`Startup.cs`, `Program.cs` or others), you must import the following namespaces:
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Enums;
 using LSCode.DatabaseConnectors.DataContexts.Extensions;
 ```
 
-After that, according to the .Net version configure the following file:
-- .Net 6 (without Startup.cs) - `Program.cs` file
-- .Net 6 (with Startup.cs) ou less - `Startup.cs` file, add the following line in the `ConfigureServices` method
+Then add the following line to register the service:
 
 ```c#
-//.Net 6 (without Startup.cs)
-builder.Services.AddSQLServerContext("connectionString");
+services.AddDataContext(DatabaseManagementSystem.SQLServer, "connectionString");
 
-//.Net 6 (with Startup.cs) ou less
-servRedisices.AddSQLServerContext("connectionString");
+//or
+
+builder.Services.AddDataContext(DatabaseManagementSystem.SQLServer, "connectionString");
 ```
 
 In the file that you want to use the database connection context, you must import the following namespace:
@@ -448,6 +438,8 @@ using LSCode.DatabaseConnectors.DataContexts.Interfaces;
 The `context` contains a property called `Connection`. As its name implies, this property contains the connection to the configured database.
 
 ```c#
+using LSCode.DatabaseConnectors.DataContexts.Interfaces;
+
 namespace MyNamespace
 {
   public class MyClass

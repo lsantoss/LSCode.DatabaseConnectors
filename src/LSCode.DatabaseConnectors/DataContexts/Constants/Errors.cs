@@ -11,5 +11,8 @@ namespace LSCode.DatabaseConnectors.DataContexts.Constants
 
         /// <value>The parameter databaseName must contain values. Cannot be null, empty or consists only of white-space characters.</value>
         internal static string DatabaseNameNullEmptyOrWhiteSpace = @"The parameter databaseName must contain values. Cannot be null, empty or consists only of white-space characters.";
+
+        /// <value>Invalid database management system.</value>
+        internal static string InvalidDatabaseManagementSystem = @"Invalid database management system.";
     }
 }

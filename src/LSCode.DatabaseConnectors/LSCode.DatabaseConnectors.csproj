@@ -5,23 +5,25 @@
     <Authors>LSCode</Authors>
     <Copyright>LSCode</Copyright>
     <Description>Offers codes to facilitate connections to databases in LSCode projects</Description>
-    <AssemblyVersion>2023.01.18.1</AssemblyVersion>
+    <AssemblyVersion>2023.02.28.1</AssemblyVersion>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lsantoss/LSCode.DatabaseConnectors</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>LSCode</PackageTags>
-    <PackageReleaseNotes>Project refactoring separating all connectors into different context files;
-File to facilitate dependency injection of package features;
-Documentation for using the package.</PackageReleaseNotes>
+    <PackageReleaseNotes>Simplified dependency injection for package features;
+Updating project dependencies;
+Updating the package usage documentation.</PackageReleaseNotes>
     <PackageIcon>LSCodePackageIcon.png</PackageIcon>
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <FileVersion>3.1.0</FileVersion>
+    <FileVersion>3.2.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Title>LSCode.DatabaseConnectors</Title>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
